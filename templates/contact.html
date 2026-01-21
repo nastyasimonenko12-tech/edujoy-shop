@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>EduJoy — Контакти</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">🌈 EduJoy</div>
+    <nav>
+        <a href="/">Головна</a>
+        <a href="/shop">Магазин</a>
+        <a href="/cart">Кошик (<span id="cart-count">{{ cart|length }}</span>)</a>
+    </nav>
+</header>
+
+<section class="contact">
+    <h2>Телефон:</h2>
+    <p>+380502591884</p>
+    <h2>QR-коди:</h2>
+    <div class="qr-codes">
+        <img src="/static/qr-instagram.jpg" alt="Instagram QR">
+        <img src="/static/qr-tiktok.jpg" alt="TikTok QR">
+    </div>
+</section>
+</body>
+</html>

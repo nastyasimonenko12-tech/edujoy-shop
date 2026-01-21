@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>EduJoy — Магазин</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">🌈 EduJoy</div>
+    <nav>
+        <a href="/">Головна</a>
+        <a href="/shop">Магазин</a>
+        <a href="/cart">Кошик (<span id="cart-count">{{ cart|length }}</span>)</a>
+        <a href="/contact">Контакти</a>
+    </nav>
+</header>
+
+<section class="products">
+    {% for product in products %}
+    <div class="product-card">
+        <img src="/static/{{ product.image }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price }} ₴</p>
+        <button class="cart-btn" data-id="{{ product.id }}">Додати в кошик</button>
+    </div>
+    {% endfor %}
+</section>
+
+<script src="/static/cart.js"></script>
+</body>
+</html>

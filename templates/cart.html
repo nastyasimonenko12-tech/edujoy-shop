@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>EduJoy — Кошик</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">🌈 EduJoy</div>
+    <nav>
+        <a href="/">Головна</a>
+        <a href="/shop">Магазин</a>
+        <a href="/cart">Кошик (<span id="cart-count">{{ cart|length }}</span>)</a>
+        <a href="/contact">Контакти</a>
+    </nav>
+</header>
+
+<section class="cart">
+    {% if items %}
+        {% for item in items %}
+        <div class="cart-item">
+            <img src="/static/{{ item.product.image }}" alt="{{ item.product.name }}">
+            <p>{{ item.product.name }} - {{ item.product.price }} ₴</p>
+            <button class="minus-btn" data-id="{{ item.product.id }}">-</button>
+            <span>{{ item.qty }}</span>
+            <button class="plus-btn" data-id="{{ item.product.id }}">+</button>
+        </div>
+        {% endfor %}
+        <h3>Сума: {{ total }} ₴</h3>
+        <button class="order-btn" onclick="window.location='tel:+380502591884'">Оформити замовлення</button>
+        <button class="clear-btn">Очистити корзину</button>
+    {% else %}
+        <p>Кошик порожній</p>
+    {% endif %}
+</section>
+
+<script src="/static/cart.js"></script>
+</body>
+</html>
